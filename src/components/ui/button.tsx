@@ -3,7 +3,7 @@ import type * as React from "react";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-[3px] transition-colors disabled:pointer-events-none cursor-pointer font-montserrat disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 rounded-[3px] transition-colors disabled:pointer-events-none cursor-pointer disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
