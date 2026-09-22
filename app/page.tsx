@@ -1,69 +1,60 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="font-h1 max-w-xs text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <section className="flex justify-center bg-background px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 xl:py-20 overflow-x-hidden">
+      <div className="flex w-full container mx-auto flex-col md:flex-row justify-center gap-8 md:gap-16">
+        <div className="w-full flex flex-col gap-4">
+          <h1 className="font-h1 block md:hidden">
+            About Us: Empower Voices, Build Connections
           </h1>
-          <p className="font-b2 max-w-md text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <Image
+            src={"/landing/about-image.webp"}
+            alt={"About Image"}
+            width={640}
+            height={480}
+            priority
+            className="w-full max-w-150 mx-auto object-cover block min-h-65"
+          />
+        </div>
+
+        <div className="flex min-w-0 w-full flex-col gap-4 text-black">
+          <h1 className="font-h1 hidden sm:block">
+            About Us: Empower Voices, Build Connections
+          </h1>
+          <p className="font-b4 md:font-b2 text-justify text-black">
+            Jogja International Model United Nations (JOINMUN) is an{" "}
+            <span className="font-bold">
+              International Model United Nations
+            </span>{" "}
+            conference initiated by the{" "}
+            <span className="font-bold">
+              Universitas Gadjah Mada Model United Nations Community
+            </span>
+            . It brings together emerging leaders to explore urgent global
+            issues through structured debate, negotiation, coalition-building,
+            and resolution drafting. In professionally moderated councils,
+            delegates represent countries, institutions, or relevant
+            stakeholders while learning to balance national interests with
+            collective action. <br />
+            <br /> More than an academic simulation, JOINMUN is a space for
+            intellectual curiosity, intercultural exchange, and responsible
+            leadership. By combining high academic standards with the
+            hospitality and cultural richness of Yogyakarta, the conference
+            empowers participants to sharpen their reasoning, express ideas
+            confidently, and build connections beyond the committee room.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={"#about"}
+            className="inline-flex items-center justify-center gap-2.5 bg-primary-300 text-white w-fit min-h-11 px-5 py-3 rounded-lg font-b2 hover:bg-primary-200 active:bg-primary-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Explore More{" "}
+            <FaArrowRight className="shrink-0 text-sm" aria-hidden />
+          </Link>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 }
