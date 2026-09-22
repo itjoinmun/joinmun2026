@@ -6,7 +6,7 @@ import { RiBookLine } from "react-icons/ri"
 
 const Chair = () => {
   return (
-    <div className="flex flex-col gap-4 md:gap-6">
+    <div className="flex flex-col gap-4 md:gap-6 bg-[url(@/public/landing/chairBG.webp)]">
       <section>
         <h2 className="font-h3 md:font-h1">
           Behind the Debate: Good Chairing in Action
