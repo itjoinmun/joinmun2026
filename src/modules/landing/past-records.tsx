@@ -45,7 +45,7 @@ const STATS: StatItemProps[] = [
 
 const PastRecords = () => {
   return (
-    <section className="bg-neutral-100 py-20">
+    <section className="py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div className="relative">
           <div className="relative z-0 aspect-square lg:aspect-[4/3] w-full overflow-hidden">
