@@ -1,8 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { buttonVariants } from "@/src/components/ui/button";
-import { cn } from "@/src/lib/utils";
 import { HiArrowRight } from "react-icons/hi";
 import StatItem, {
   StatItemProps,
@@ -10,6 +7,7 @@ import StatItem, {
 import { MdOutlineGroups } from "react-icons/md";
 import { LiaGlobeSolid } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
+import { Button } from "@/src/components/ui/button";
 
 const STATS: StatItemProps[] = [
   {
@@ -100,19 +98,14 @@ const PastRecords = () => {
             ))}
           </div>
 
-          <Link
-            href="/track-records"
-            className={cn(
-              buttonVariants({
-                size: "md",
-                className:
-                  "mt-6 w-fit font-b4 gap-2 rounded-lg sm:w-fit sm:mt-8",
-              }),
-            )}
+          <Button
+            size="md"
+            disabled
+            className="mt-6 w-fit font-b4 gap-2 rounded-lg sm:w-fit sm:mt-8"
           >
-            Explore Track Records
-            <HiArrowRight className="size-4" />
-          </Link>
+            Coming Soon
+            <HiArrowRight />
+          </Button>
         </div>
       </div>
     </section>
