@@ -4,12 +4,13 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import AwardCard from "@/src/components/landing/award-card";
-import { awards } from "./award-data";
+import Container from "@/src/components/ui/container";
+import { awards } from "./data/award-data";
 
 const dotClass = (active: boolean) =>
   `h-3 w-3 rounded-full ${active ? "bg-neutral-100" : "bg-neutral-500"}`;
 
-export default function AwardSection() {
+export default function Award() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0); 
   const [index, setIndex] = useState(0);
@@ -73,7 +74,7 @@ export default function AwardSection() {
         />
       </div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-5/3 bg-linear-to-l from-black/50 to-transparent" />
-      <div className="relative z-10 mx-auto flex w-full max-w-300 flex-col gap-8 px-4">
+      <Container className="relative z-10 gap-8">
         <div className="flex flex-col">
           <h2 className="font-h4 md:font-h2 text-neutral-100">What You Could Achieve?</h2>
           <p className="font-serif font-b3 md:font-h7 text-neutral-100">
@@ -84,7 +85,7 @@ export default function AwardSection() {
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scrollbar-hidden lg:justify-between"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scrollbar-hidden overflow-y-hidden lg:justify-between"
         >
           {awards.map((award) => (
             <div key={award.id} className="shrink-0 snap-start">
@@ -120,7 +121,7 @@ export default function AwardSection() {
             <FaChevronRight size={14} />
           </button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

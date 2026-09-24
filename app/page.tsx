@@ -1,12 +1,26 @@
+import Award from "@/src/modules/landing/award"
 import Chair from "@/src/modules/landing/chair"
 import Theme from "@/src/modules/landing/theme"
+import { Faq } from "@/src/modules/landing/faq"
+import { faqItems } from "@/src/modules/landing/data/faq-data"
 
 export default function Home() {
   return (
-    /*main tag is tempoary container*/
-    <main className="*:px-7 *:py-5.5 md:*:px-30 md:*:py-8">
+    <main>
+      {/* <Hero/> aya */}
+      {/* <About/> haidar */}
+      {/* <Value/> dani */}
+      {/* <Council/> ramzi */}
+      {/* <Events /> ramzi */}
+      {/* <Timeline /> aya */}
       <Chair />
       <Theme />
+      <Award />
+      {/* <PastRecords /> dani */}
+      {/* <Testimonies /> haidar */}
+      {/* <Gallery /> aya */}
+      <Faq items={faqItems} />
+      {/* <CTA /> aya */}
     </main>
   )
 }
