@@ -58,7 +58,7 @@ const councils: Council[] = [
     mode: "Offline",
     description:
       "Addressing the Threat of Artificial Intelligence-Based Gender Violence Following The Case of the 2024 South Korean Deepfake Crisis",
-    logo: "/landing/unwomen-logo.png",
+    logo: "/landing/unwoman-logo.png",
     image: "/landing/unwomen-bg.png",
   },
   {
