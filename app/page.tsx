@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
 import { CouncilSection } from "@/src/components/council-section";
 import { EventSection } from "@/src/components/event-section";
+import { ArrowRightIcon } from "@/src/components/ui/icons";
 
 export default function Home() {
   return (
@@ -54,7 +54,7 @@ export default function Home() {
               className="inline-flex items-center justify-center gap-2.5 bg-primary-300 text-white w-fit min-h-11 px-5 py-3 rounded-lg font-b2 hover:bg-primary-200 active:bg-primary-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
             >
               Explore More{" "}
-              <FaArrowRight className="shrink-0 text-sm" aria-hidden />
+              <ArrowRightIcon />
             </Link>
           </div>
         </div>

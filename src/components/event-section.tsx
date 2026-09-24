@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { CarouselNav } from "@/src/components/ui/carousel-nav";
+import { ArrowUpRightIcon } from "@/src/components/ui/icons";
 
 interface EventItem {
   date: string;
@@ -56,66 +58,6 @@ const CARD_STEP = 324;
 const VIEW_WIDTH = 1200;
 const TOTAL_WIDTH = 320 + 300 * 4 + 24 * 4;
 const MAX_OFFSET = TOTAL_WIDTH - VIEW_WIDTH;
-
-function ChevronLeftIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M12.5 5L7.5 10L12.5 15"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronRightIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M7.5 5L12.5 10L7.5 15"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowUpRightIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 14L14 6M14 6H7.5M14 6V12.5"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 function DateBadge({ date, featured }: { date: string; featured?: boolean }) {
   return (
@@ -269,40 +211,15 @@ export function EventSection() {
           </div>
         </div>
 
-        <nav className="flex items-center justify-center gap-[23px]">
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.max(0, p - 1))}
-            disabled={page === 0}
-            aria-label="Previous events"
-            className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
-          >
-            <ChevronLeftIcon />
-          </button>
-          <div className="flex gap-2">
-            {Array.from({ length: TOTAL_DOTS }, (_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setPage(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                aria-current={page === i}
-                className={`w-4 h-4 rounded-full transition-colors ${
-                  page === i ? "bg-black" : "bg-neutral-400"
-                }`}
-              />
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.min(TOTAL_DOTS - 1, p + 1))}
-            disabled={page === TOTAL_DOTS - 1}
-            aria-label="Next events"
-            className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
-          >
-            <ChevronRightIcon />
-          </button>
-        </nav>
+        <CarouselNav
+          page={page}
+          total={TOTAL_DOTS}
+          onChange={setPage}
+          label="events"
+          dotLabel="slide"
+          activeDotClass="bg-black"
+          inactiveDotClass="bg-neutral-400"
+        />
       </div>
     </section>
   );

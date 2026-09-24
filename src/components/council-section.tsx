@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { CarouselNav } from "@/src/components/ui/carousel-nav";
+import { ArrowUpRightIcon } from "@/src/components/ui/icons";
 
 interface Council {
   name: string;
@@ -118,67 +120,7 @@ const modeTagStyles: Record<string, string> = {
 
 const CARDS_PER_PAGE = 4;
 const CARD_STEP = (300 + 24) * CARDS_PER_PAGE;
-const TOTAL_PAGES = 2;
-
-function ChevronLeftIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M12.5 5L7.5 10L12.5 15"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronRightIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M7.5 5L12.5 10L7.5 15"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowUpRightIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 14L14 6M14 6H7.5M14 6V12.5"
-        stroke="currentColor"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const TOTAL_PAGES = Math.ceil(councils.length / CARDS_PER_PAGE);
 
 export function CouncilSection() {
   const [page, setPage] = useState(0);
@@ -288,40 +230,15 @@ export function CouncilSection() {
             </div>
           </div>
 
-          <nav className="flex items-center justify-center gap-[23px]">
-            <button
-              type="button"
-              onClick={() => setPage((p) => Math.max(0, p - 1))}
-              disabled={page === 0}
-              aria-label="Previous councils"
-              className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
-            >
-              <ChevronLeftIcon />
-            </button>
-            <div className="flex gap-2">
-              {Array.from({ length: TOTAL_PAGES }, (_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setPage(i)}
-                  aria-label={`Go to page ${i + 1}`}
-                  aria-current={page === i}
-                  className={`w-4 h-4 rounded-full transition-colors ${
-                    page === i ? "bg-neutral-100" : "bg-neutral-500"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => setPage((p) => Math.min(TOTAL_PAGES - 1, p + 1))}
-              disabled={page === TOTAL_PAGES - 1}
-              aria-label="Next councils"
-              className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
-            >
-              <ChevronRightIcon />
-            </button>
-          </nav>
+          <CarouselNav
+            page={page}
+            total={TOTAL_PAGES}
+            onChange={setPage}
+            label="councils"
+            dotLabel="page"
+            activeDotClass="bg-neutral-100"
+            inactiveDotClass="bg-neutral-500"
+          />
         </div>
       </div>
     </section>
