@@ -53,11 +53,20 @@ const events: EventItem[] = [
   },
 ];
 
-const TOTAL_DOTS = 6;
-const CARD_STEP = 324;
+const CARD_GAP = 24;
 const VIEW_WIDTH = 1200;
-const TOTAL_WIDTH = 320 + 300 * 4 + 24 * 4;
-const MAX_OFFSET = TOTAL_WIDTH - VIEW_WIDTH;
+const cardWidth = (event: EventItem) => (event.featured ? 320 : 300);
+
+const PAGE_OFFSETS = (() => {
+  let x = 0;
+  const starts: number[] = [];
+  for (const event of events) {
+    starts.push(x);
+    x += cardWidth(event) + CARD_GAP;
+  }
+  const maxOffset = Math.max(0, x - CARD_GAP - VIEW_WIDTH);
+  return [...new Set(starts.map((start) => Math.min(start, maxOffset)))];
+})();
 
 function DateBadge({ date, featured }: { date: string; featured?: boolean }) {
   return (
@@ -176,7 +185,7 @@ function EventCard({ event }: { event: EventItem }) {
 
 export function EventSection() {
   const [page, setPage] = useState(0);
-  const offset = Math.min(page * CARD_STEP, MAX_OFFSET);
+  const offset = PAGE_OFFSETS[page] ?? 0;
 
   return (
     <section
@@ -213,7 +222,7 @@ export function EventSection() {
 
         <CarouselNav
           page={page}
-          total={TOTAL_DOTS}
+          total={PAGE_OFFSETS.length}
           onChange={setPage}
           label="events"
           dotLabel="slide"
