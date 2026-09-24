@@ -45,10 +45,10 @@ const STATS: StatItemProps[] = [
 
 const PastRecords = () => {
   return (
-    <section className="bg-secondary-100 py-20">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+    <section className="bg-neutral-100 py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div className="relative">
-          <div className="relative z-0 aspect-[4/3] w-full overflow-hidden">
+          <div className="relative z-0 aspect-square lg:aspect-[4/3] w-full overflow-hidden">
             <Image
               src="/landing/forum.webp"
               alt=""
@@ -62,29 +62,30 @@ const PastRecords = () => {
             alt=""
             width={289}
             height={364}
-            className="absolute w-fit bottom-0"
+            className="absolute bottom-0 left-0 z-10 w-22 max-w-none sm:w-36 lg:w-fit"
           />
           <Image
             src="/landing/right-corner.webp"
             alt=""
             width={510}
             height={88}
-            className="absolute w-fit bottom-0 right-0"
+            className="absolute bottom-0 right-0 z-10 w-40 max-w-none sm:w-36 lg:w-fit"
           />
-          {/* <Image
+          <Image
             src="/landing/cloud-1.webp"
             alt=""
             width={392}
             height={184}
-            className="relative z-10 w-fit"
+            className="absolute left-[-11%] bottom-[36%] z-10 w-27 max-w-none sm:w-36 lg:w-fit lg:bottom-[36%]"
           />
+
           <Image
             src="/landing/cloud-2.webp"
             alt=""
             width={542}
             height={255}
-            className="relative z-10 w-fit"
-          /> */}
+            className="absolute -bottom-[-3%] -left-[-15%] z-10 w-37 max-w-none sm:w-36 lg:w-fit sm:-bottom-[8%] sm:-left-[-16%]"
+          />
         </div>
 
         <div>
@@ -104,12 +105,13 @@ const PastRecords = () => {
             className={cn(
               buttonVariants({
                 size: "md",
-                className: "mt-8 w-fit gap-2 rounded-lg sm:w-fit",
+                className:
+                  "mt-6 w-fit font-b4 gap-2 rounded-lg sm:w-fit sm:mt-8",
               }),
             )}
           >
             Explore Track Records
-            <HiArrowRight />
+            <HiArrowRight className="size-4" />
           </Link>
         </div>
       </div>
