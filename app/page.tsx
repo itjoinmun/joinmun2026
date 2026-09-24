@@ -3,6 +3,7 @@ import Chair from "@/src/modules/landing/chair"
 import Theme from "@/src/modules/landing/theme"
 import { Faq } from "@/src/modules/landing/faq"
 import { faqItems } from "@/src/modules/landing/data/faq-data"
+import Gallery from "@/src/modules/landing/gallery"
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Award />
       {/* <PastRecords /> dani */}
       {/* <Testimonies /> haidar */}
-      {/* <Gallery /> aya */}
+      <Gallery />
       <Faq items={faqItems} />
       {/* <CTA /> aya */}
     </main>
