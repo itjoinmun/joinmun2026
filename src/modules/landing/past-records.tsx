@@ -7,10 +7,13 @@ import { HiArrowRight } from "react-icons/hi";
 import StatItem, {
   StatItemProps,
 } from "@/src/components/past-records/stat-item";
+import { MdOutlineGroups } from "react-icons/md";
+import { LiaGlobeSolid } from "react-icons/lia";
+import { FaRegStar } from "react-icons/fa6";
 
 const STATS: StatItemProps[] = [
   {
-    icon: "/landing/group.webp",
+    icon: MdOutlineGroups,
     title: "Growing Delegate Community",
     description: (
       <>
@@ -20,7 +23,7 @@ const STATS: StatItemProps[] = [
     ),
   },
   {
-    icon: "/landing/earth.webp",
+    icon: LiaGlobeSolid,
     title: "International Reach",
     description: (
       <>
@@ -29,7 +32,7 @@ const STATS: StatItemProps[] = [
     ),
   },
   {
-    icon: "/landing/star.webp",
+    icon: FaRegStar,
     title: "Distinguished Speakers & Diplomats",
     description: (
       <>
@@ -55,12 +58,33 @@ const PastRecords = () => {
           </div>
 
           <Image
-            src="/landing/clouds.webp"
+            src="/landing/left-corner.webp"
             alt=""
-            width={1321}
-            height={624}
-            className="absolute -bottom-15.5 -left-18 z-1 w-40 sm:w-165 max-w-none"
+            width={289}
+            height={364}
+            className="absolute w-fit bottom-0"
           />
+          <Image
+            src="/landing/right-corner.webp"
+            alt=""
+            width={510}
+            height={88}
+            className="absolute w-fit bottom-0 right-0"
+          />
+          {/* <Image
+            src="/landing/cloud-1.webp"
+            alt=""
+            width={392}
+            height={184}
+            className="relative z-10 w-fit"
+          />
+          <Image
+            src="/landing/cloud-2.webp"
+            alt=""
+            width={542}
+            height={255}
+            className="relative z-10 w-fit"
+          /> */}
         </div>
 
         <div>
@@ -79,7 +103,7 @@ const PastRecords = () => {
             href="/track-records"
             className={cn(
               buttonVariants({
-                size: "sm",
+                size: "md",
                 className: "mt-8 w-fit gap-2 rounded-lg sm:w-fit",
               }),
             )}
