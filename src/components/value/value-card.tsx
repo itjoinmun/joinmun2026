@@ -1,16 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
-import { buttonVariants } from "@/src/components/ui/button";
-import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/ui/button";
 
 export interface ValueCardProps {
   title: string;
   description: string;
   imageSrc: string;
   waveSrc: string;
-  href: string;
+  // href: string;
 }
 
 const ValueCard = ({
@@ -18,7 +16,7 @@ const ValueCard = ({
   description,
   imageSrc,
   waveSrc,
-  href,
+  // href,
 }: ValueCardProps) => {
   return (
     <div className="relative flex aspect-[360/180] flex-col overflow-hidden rounded-md shadow-md">
@@ -31,7 +29,7 @@ const ValueCard = ({
         alt=""
         width={774}
         height={410}
-        className="absolute bottom-[-5] right-0 h-auto w-[70%] sm:w-fit"
+        className="absolute bottom-[-5] right-0 h-auto w-[75%] sm:w-fit"
       />
 
       <div className="relative flex h-full flex-col justify-between">
@@ -42,16 +40,14 @@ const ValueCard = ({
             {description}
           </p>
         </div>
-        <Link
-          href={href}
-          className={cn(
-            buttonVariants({ size: "sm" }),
-            "w-fit gap-3 self-end rounded-lg font-b5 mb-4.5 mx-3",
-          )}
+        <Button
+          size="sm"
+          disabled
+          className="w-fit gap-3 self-end rounded-lg font-b5 mb-4.5 mx-3"
         >
-          See More
-          <HiArrowRight className="size-4" />
-        </Link>
+          Coming Soon
+          <HiArrowRight />
+        </Button>
       </div>
     </div>
   );

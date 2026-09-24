@@ -9,7 +9,7 @@ const Value = () => {
         "Selection of councils, agendas, venues, and supporting events creates a coherent and memorable experience.",
       imageSrc: "/landing/curated-conference.webp",
       waveSrc: "/landing/wave-olive-hires.webp",
-      href: "/value/curated-conference", // coming soon (?)
+      // href: "/value/curated-conference",
     },
     {
       title: "Inclusive standards",
@@ -17,7 +17,7 @@ const Value = () => {
         "Delegates across age groups are welcomed while professional academic and event standards are maintained.",
       imageSrc: "/landing/inclusive-standards.webp",
       waveSrc: "/landing/wave-red-hires.webp",
-      href: "/value/inclusive-standards", // coming soon (?)
+      // href: "/value/inclusive-standards",
     },
     {
       title: "Yogyakarta experience",
@@ -25,7 +25,7 @@ const Value = () => {
         "Conference proceedings are enriched by cultural encounters and spaces that reflect the city’s identity.",
       imageSrc: "/landing/yogya-experience.webp",
       waveSrc: "/landing/wave-green-hires.webp",
-      href: "/value/yogya-experience", // coming soon (?)
+      // href: "/value/yogya-experience",
     },
   ];
 
@@ -40,7 +40,7 @@ const Value = () => {
           Explore diplomacy, connection, and culture in one journey.
         </p>
 
-        <div className="mt-5 grid gap-6 md:grid-cols-3">
+        <div className="mt-5 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {VALUE_CARDS.map((card) => (
             <ValueCard key={card.title} {...card} />
           ))}
