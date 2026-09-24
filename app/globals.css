@@ -33,7 +33,7 @@
   --color-neutral-500: #bbbbbb;
   --color-neutral-600: #a4a4a4;
   --color-neutral-700: #8e8e8e;
-  --color-neutral-800: #777777; 
+  --color-neutral-800: #777777;
   --color-neutral-900: #606060;
   --color-neutral-1000: #4a4a4a;
 
@@ -60,91 +60,91 @@
  */
 @utility font-display {
   font-family: var(--font-cormorant-garamond);
-  font-size: 4rem;
+  font-size: 64px;
   font-weight: 400;
   line-height: 1.1;
 }
 
 @utility font-h1 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
 }
 
 @utility font-h2 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
 }
 
 @utility font-h3 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 1.875rem;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.25;
 }
 
 @utility font-h4 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 1.75rem;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.25;
 }
 
 @utility font-h5 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
 }
 
 @utility font-h6 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 1.375rem;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.3;
 }
 
 @utility font-h7 {
   font-family: var(--font-cormorant-garamond);
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 @utility font-b1 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
 }
 
 @utility font-b2 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
 }
 
 @utility font-b3 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
 }
 
 @utility font-b4 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
 
 @utility font-b5 {
   font-family: var(--font-plus-jakarta-sans);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
 }

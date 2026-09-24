@@ -1,14 +1,15 @@
-import Award from "@/src/modules/landing/award"
+import Hero from "@/src/modules/landing/hero"
 import Chair from "@/src/modules/landing/chair"
 import Theme from "@/src/modules/landing/theme"
+import Award from "@/src/modules/landing/award"
+import Gallery from "@/src/modules/landing/gallery"
 import { Faq } from "@/src/modules/landing/faq"
 import { faqItems } from "@/src/modules/landing/data/faq-data"
-import Gallery from "@/src/modules/landing/gallery"
 
 export default function Home() {
   return (
     <main>
-      {/* <Hero/> aya */}
+      <Hero />
       {/* <About/> haidar */}
       {/* <Value/> dani */}
       {/* <Council/> ramzi */}
