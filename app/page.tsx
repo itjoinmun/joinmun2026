@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { CouncilSection } from "@/src/components/council-section";
+import { EventSection } from "@/src/components/event-section";
 
 export default function Home() {
   return (
@@ -60,6 +61,7 @@ export default function Home() {
       </section>
 
       <CouncilSection />
+      <EventSection />
     </>
   );
 }

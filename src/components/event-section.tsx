@@ -1,0 +1,309 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
+interface EventItem {
+  date: string;
+  title: string;
+  description: string;
+  image: string;
+  featured?: boolean;
+  tag?: string;
+}
+
+const events: EventItem[] = [
+  {
+    date: "20 Nov ",
+    tag: "Pre-Event",
+    title: "Coming Soon",
+    description: "Stay tuned for a very interesting event reveal!",
+    image: "/landing/event-pre-event-bg.png",
+    featured: true,
+  },
+  {
+    date: "20 Nov ",
+    title: "Opening Ceremony",
+    description:
+      "Through cultural performance into brings Javanese heritage into dialogue with the practice of diplomacy",
+    image: "/landing/event-opening-bg.png",
+  },
+  {
+    date: "21 Nov - 22 Nov ",
+    title: "Committee Sessions",
+    description:
+      " Across six substantive sessions over two days, delegates will be debating diplomatically",
+    image: "/landing/event-committee-bg.png",
+  },
+  {
+    date: "21 Nov ",
+    title: "Social Night",
+    description:
+      "Offers delegates a restorative evening of entertainment, networking, and cultural exchange ",
+    image: "/landing/event-social-bg.png",
+  },
+  {
+    date: "22 Nov ",
+    title: "Closing Ceremony",
+    description:
+      "Marks  the end of the delegates’  journey. Through final remarks, the announcement of awards, and reflection",
+    image: "/landing/event-closing-bg.png",
+  },
+];
+
+const TOTAL_DOTS = 6;
+const CARD_STEP = 324;
+const VIEW_WIDTH = 1200;
+const TOTAL_WIDTH = 320 + 300 * 4 + 24 * 4;
+const MAX_OFFSET = TOTAL_WIDTH - VIEW_WIDTH;
+
+function ChevronLeftIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12.5 5L7.5 10L12.5 15"
+        stroke="currentColor"
+        strokeWidth="1.67"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronRightIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M7.5 5L12.5 10L7.5 15"
+        stroke="currentColor"
+        strokeWidth="1.67"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ArrowUpRightIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M6 14L14 6M14 6H7.5M14 6V12.5"
+        stroke="currentColor"
+        strokeWidth="1.67"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DateBadge({ date, featured }: { date: string; featured?: boolean }) {
+  return (
+    <div className="relative flex items-center w-fit h-[34px] rounded-lg bg-white pl-8 pr-3">
+      <span
+        aria-hidden="true"
+        className={`absolute left-0 top-0 w-5 h-9 rounded-lg ${
+          featured ? "" : "bg-neutral-200"
+        }`}
+        style={
+          featured
+            ? {
+                background:
+                  "linear-gradient(180deg, #E86959 0%, #5E2921 100%)",
+              }
+            : undefined
+        }
+      />
+      <span className="relative text-[12px] leading-[18px] font-normal text-black">
+        {date}
+      </span>
+    </div>
+  );
+}
+
+function LearnMoreButton() {
+  return (
+    <button
+      type="button"
+      className="w-full h-9 rounded-lg bg-primary-300 border border-primary-300 text-neutral-100 text-[12px] leading-[18px] font-normal flex items-center justify-center gap-2 hover:border-primary-400 active:bg-primary-200 active:border-primary-100 transition-colors"
+    >
+      Learn more
+      <ArrowUpRightIcon />
+    </button>
+  );
+}
+
+function Shadows() {
+  return (
+    <>
+      <div className="absolute top-0 left-0 right-0 h-[95px] bg-gradient-to-b from-black to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-[224px] bg-gradient-to-b from-transparent to-black pointer-events-none" />
+    </>
+  );
+}
+
+function FeaturedCard({ event }: { event: EventItem }) {
+  return (
+    <div className="relative w-[320px] h-[380px] shrink-0 overflow-hidden bg-neutral-300">
+      <Image
+        src={event.image}
+        alt={event.title}
+        fill
+        sizes="320px"
+        className="object-cover"
+      />
+      <Shadows />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 backdrop-blur-[6px] bg-gradient-to-b from-transparent to-black/50 pointer-events-none"
+      />
+
+      <div className="absolute top-6 left-4 z-10">
+        <DateBadge date={event.date} featured />
+      </div>
+
+      <div className="absolute top-[227px] left-4 right-4 z-10 flex flex-col">
+        <span className="w-fit px-3 py-1 rounded-lg bg-white text-black text-[12px] leading-[18px] font-bold">
+          {event.tag}
+        </span>
+        <span className="font-serif text-[30px] font-bold leading-[45px] text-white">
+          {event.title}
+        </span>
+        <span className="text-[10px] leading-[15px] font-normal text-white">
+          {event.description}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function EventCard({ event }: { event: EventItem }) {
+  if (event.featured) {
+    return <FeaturedCard event={event} />;
+  }
+
+  return (
+    <div className="relative w-[300px] h-[356px] shrink-0 overflow-hidden bg-neutral-300">
+      <Image
+        src={event.image}
+        alt={event.title}
+        fill
+        sizes="300px"
+        className="object-cover"
+      />
+      <Shadows />
+
+      <div className="relative z-10 h-full flex flex-col justify-between px-4 py-6">
+        <DateBadge date={event.date} />
+
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
+            <span className="font-serif text-[30px] font-bold leading-[45px] text-white">
+              {event.title}
+            </span>
+            <span className="text-[10px] leading-[15px] font-normal text-white">
+              {event.description}
+            </span>
+          </div>
+          <LearnMoreButton />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function EventSection() {
+  const [page, setPage] = useState(0);
+  const offset = Math.min(page * CARD_STEP, MAX_OFFSET);
+
+  return (
+    <section
+      id="events"
+      className="relative overflow-hidden max-w-[1440px] mx-auto h-[605px] px-[120px] flex flex-col items-center justify-center gap-[17px]"
+    >
+      <div className="w-full max-w-[1200px]">
+        <h2 className="font-serif text-[34px] font-bold leading-[47px] text-black">
+          Explore our Events!
+        </h2>
+        <p className="font-serif text-[20px] font-medium leading-[30px] tracking-[-0.015em] text-black">
+          JOINMUN is a 3-day event that brings together participants for{" "}
+          <strong className="font-bold">diplomatic discussions.</strong>{" "}
+          During the conference, delegates represent different countries and
+          participate in workshops to enhance their skills. The event aims to{" "}
+          <strong className="font-bold">
+            foster collaboration, critical thinking, and international
+            awareness.
+          </strong>
+        </p>
+      </div>
+
+      <div className="w-full max-w-[1200px] flex flex-col gap-[17px]">
+        <div className="overflow-hidden">
+          <div
+            className="flex items-center gap-6 transition-transform duration-300 ease-out"
+            style={{ transform: `translateX(-${offset}px)` }}
+          >
+            {events.map((event) => (
+              <EventCard key={event.title} event={event} />
+            ))}
+          </div>
+        </div>
+
+        <nav className="flex items-center justify-center gap-[23px]">
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            aria-label="Previous events"
+            className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
+          >
+            <ChevronLeftIcon />
+          </button>
+          <div className="flex gap-2">
+            {Array.from({ length: TOTAL_DOTS }, (_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setPage(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={page === i}
+                className={`w-4 h-4 rounded-full transition-colors ${
+                  page === i ? "bg-black" : "bg-neutral-400"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.min(TOTAL_DOTS - 1, p + 1))}
+            disabled={page === TOTAL_DOTS - 1}
+            aria-label="Next events"
+            className="w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300"
+          >
+            <ChevronRightIcon />
+          </button>
+        </nav>
+      </div>
+    </section>
+  );
+}
