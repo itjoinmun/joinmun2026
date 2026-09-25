@@ -22,7 +22,7 @@ const characterVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative isolate h-[550px] min-h-[550px] max-h-[550px] overflow-hidden text-white sm:h-auto sm:min-h-[760px] md:h-screen sm:max-h-none">
+    <section id="top" className="relative isolate h-[550px] min-h-[550px] max-h-[550px] overflow-hidden text-white sm:h-auto sm:min-h-[760px] md:h-screen sm:max-h-none">
       <Image
         src="/landing/hero/hero-background.webp"
         alt="Delegates in a JOINMUN conference session"

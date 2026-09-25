@@ -17,7 +17,7 @@ export default function Timeline() {
   const isVisible = useInView(section, { once: true, amount: 0.35 });
 
   return (
-    <section ref={section} className="relative overflow-hidden bg-[#fdfaec] px-6 py-20 text-black md:px-12 md:py-28">
+    <section id="timeline" ref={section} className="relative overflow-hidden bg-[#fdfaec] px-6 py-20 text-black md:px-12 md:py-28">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       </div>
 
