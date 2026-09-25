@@ -1,4 +1,5 @@
 import Hero from "@/src/modules/landing/hero"
+import About from "@/src/modules/landing/about";
 import Value from "@/src/modules/landing/value";
 import { Council } from "@/src/modules/landing/council";
 import Events from "@/src/modules/landing/event";
@@ -16,7 +17,7 @@ export default function Home() {
     <main>
       <Hero />
       <div id="about">
-        {/* <About/> haidar */}
+        <About/>
       </div>
       <Value />
       <div id="councils">
