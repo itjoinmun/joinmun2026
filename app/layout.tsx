@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ReactNode } from "react";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
