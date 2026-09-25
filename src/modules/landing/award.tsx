@@ -85,7 +85,7 @@ export default function Award() {
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scrollbar-hidden overflow-y-hidden lg:justify-between"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scrollbar-none overflow-y-hidden lg:justify-between"
         >
           {awards.map((award) => (
             <div key={award.id} className="shrink-0 snap-start">
