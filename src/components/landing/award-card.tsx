@@ -18,7 +18,7 @@ export default function AwardCard({
 
   return (
     <article className="relative h-89 w-55 rounded-lg border-4 border-neutral-100 bg-neutral-900">
-        <div className="absolute inset-0 overflow-hidden rounded-sm">
+        <div className="absolute inset-0 overflow-visible rounded-sm">
           <Image src={backgroundImage} alt="" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-black/90" />
