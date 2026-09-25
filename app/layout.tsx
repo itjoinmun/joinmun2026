@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "@/src/components/navbar";
 import Footer from "@/src/components/footer";
+import Cta from "@/src/modules/cta";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-full flex flex-col bg-background">
         <Navbar />
         {children}
+        <Cta />
         <Footer />
       </body>
     </html>

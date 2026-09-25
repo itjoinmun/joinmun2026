@@ -30,7 +30,7 @@ export default function Navbar() {
         ? "inset-x-0 top-0 md:inset-x-5 md:top-5 md:rounded-[10px]"
         : "inset-x-0 top-0 rounded-none",
     )}>
-      <Link href="#top" aria-label="JOINMUN home" className="shrink-0">
+      <Link href="/" aria-label="JOINMUN home" className="shrink-0">
         <Image src="/logo/navbar.png" alt="JOINMUN 2026" width={179} height={47} className="h-auto w-28 sm:w-32" />
       </Link>
       <div className="hidden items-center gap-8 text-sm lg:flex justify-end w-full">
