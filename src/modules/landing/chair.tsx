@@ -1,4 +1,4 @@
-import Card from "@/src/components/chair/card"
+import ChairCard from "@/src/components/landing/chair-card"
 import Container from "@/src/components/ui/container"
 import { GiEarthAsiaOceania } from "react-icons/gi"
 import { LuHandshake } from "react-icons/lu"
@@ -27,18 +27,18 @@ const Chair = () => {
           </p>
         </div>
         <div className="flex flex-col gap-6 md:flex-row">
-          <Card Icon={MdOutlineGroups} title="Academic Leadership">
+          <ChairCard Icon={MdOutlineGroups} title="Academic Leadership">
             Guide debate and facilitates meaningful discussion
-          </Card>
-          <Card Icon={RiBookLine} title="Preparation & Resource">
+          </ChairCard>
+          <ChairCard Icon={RiBookLine} title="Preparation & Resource">
             Create Study Guides, RoP, and relevant preferences.
-          </Card>
-          <Card Icon={LuHandshake} title="Team Collaboration">
+          </ChairCard>
+          <ChairCard Icon={LuHandshake} title="Team Collaboration">
             Work closely with the academic team to shape your council
-          </Card>
-          <Card Icon={GiEarthAsiaOceania} title="Impactful Experience">
+          </ChairCard>
+          <ChairCard Icon={GiEarthAsiaOceania} title="Impactful Experience">
             Join JOINMUN as a Chair and help create meaningful
-          </Card>
+          </ChairCard>
         </div>
       </Container>
     </section >
