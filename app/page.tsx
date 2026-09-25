@@ -1,3 +1,4 @@
+import PastRecords from "@/src/modules/landing/past-records";
 import Value from "@/src/modules/landing/value";
 import Award from "@/src/modules/landing/award"
 import Hero from "@/src/modules/landing/hero"
@@ -21,7 +22,7 @@ export default function Home() {
       <Chair />
       <Theme />
       <Award />
-      {/* <PastRecords /> dani */}
+      <PastRecords />
       {/* <Testimonies /> haidar */}
       <Gallery />
       <Faq items={faqItems} />
