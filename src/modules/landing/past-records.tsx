@@ -1,9 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { HiArrowRight } from "react-icons/hi";
-import StatItem, {
-  StatItemProps,
-} from "@/src/components/landing/stat-item";
+import StatItem, { StatItemProps } from "@/src/components/landing/stat-item";
 import { MdOutlineGroups } from "react-icons/md";
 import { LiaGlobeSolid } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
