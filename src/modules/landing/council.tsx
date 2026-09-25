@@ -122,7 +122,7 @@ const CARDS_PER_PAGE = 4;
 const CARD_STEP = (300 + 24) * CARDS_PER_PAGE;
 const TOTAL_PAGES = Math.ceil(councils.length / CARDS_PER_PAGE);
 
-export function CouncilSection() {
+export function Council() {
   const [page, setPage] = useState(0);
 
   return (

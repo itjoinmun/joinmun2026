@@ -183,7 +183,7 @@ function EventCard({ event }: { event: EventItem }) {
   );
 }
 
-export function EventSection() {
+export function Event() {
   const [page, setPage] = useState(0);
   const offset = PAGE_OFFSETS[page] ?? 0;
 
