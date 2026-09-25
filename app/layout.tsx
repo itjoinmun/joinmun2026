@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import { ReactNode } from "react";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
+import Navbar from "@/src/components/navbar";
+import Footer from "@/src/components/footer";
+import Cta from "@/src/modules/cta";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -26,7 +30,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${cormorantGaramond.variable} ${plusJakartaSans.variable} h-full antialiased overflow-x-hidden scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-background">{children}</body>
+      <body className="min-h-full flex flex-col bg-background">
+        <Navbar />
+        {children}
+        <Cta />
+        <Footer />
+      </body>
     </html>
   );
 }
