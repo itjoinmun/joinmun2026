@@ -1,4 +1,4 @@
-import About from "@/src/components/landing/about";
+import About from "@/src/modules/landing/about";
 import Award from "@/src/modules/landing/award"
 import Chair from "@/src/modules/landing/chair"
 import Theme from "@/src/modules/landing/theme"
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       {/* <Hero/> aya */}
-      {/* <About/> haidar */}
+      <About/>
       {/* <Value/> dani */}
       {/* <Council/> ramzi */}
       {/* <Events /> ramzi */}
