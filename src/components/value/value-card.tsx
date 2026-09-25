@@ -19,7 +19,7 @@ const ValueCard = ({
   // href,
 }: ValueCardProps) => {
   return (
-    <div className="relative flex aspect-[360/180] flex-col overflow-hidden rounded-md shadow-md">
+    <div className="relative flex h-fit xl:max-h-none max-h-50 pb-5 flex-col overflow-hidden rounded-md shadow-md">
       <Image src={imageSrc} alt="" fill className="object-cover" />
 
       <div className="absolute inset-0 bg-neutral-300/83" aria-hidden />
@@ -36,7 +36,7 @@ const ValueCard = ({
         <div className="px-[18px] pt-4 pb-1 sm:pt-5 sm:pb-1">
           <h3 className="font-h7 text-neutral-200 sm:font-h6">{title}</h3>
           <div className="mt-1.5 mb-2 h-px w-full bg-neutral-200 sm:mt-2 sm:mb-3" />
-          <p className="font-b5 font-medium max-w-[95%] text-neutral-200 sm:font-b3">
+          <p className="font-b5 font-medium max-w-[95%] text-neutral-200 sm:font-b2">
             {description}
           </p>
         </div>
@@ -46,7 +46,7 @@ const ValueCard = ({
           className="w-fit gap-3 self-end rounded-lg font-b5 mb-4.5 mx-3"
         >
           Coming Soon
-          <HiArrowRight />
+          {/* <HiArrowRight /> */}
         </Button>
       </div>
     </div>

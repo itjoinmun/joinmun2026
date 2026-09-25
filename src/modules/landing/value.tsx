@@ -1,4 +1,4 @@
-import React from "react";
+import Container from "@/src/components/ui/container";
 import ValueCard from "@/src/components/value/value-card";
 
 const Value = () => {
@@ -7,32 +7,31 @@ const Value = () => {
       title: "Curated conference",
       description:
         "Selection of councils, agendas, venues, and supporting events creates a coherent and memorable experience.",
-      imageSrc: "/landing/curated-conference.webp",
-      waveSrc: "/landing/wave-olive-hires.webp",
+      imageSrc: "/landing/value/curated-conference.webp",
+      waveSrc: "/landing/value/wave-olive-hires.webp",
       // href: "/value/curated-conference",
     },
     {
       title: "Inclusive standards",
       description:
         "Delegates across age groups are welcomed while professional academic and event standards are maintained.",
-      imageSrc: "/landing/inclusive-standards.webp",
-      waveSrc: "/landing/wave-red-hires.webp",
+      imageSrc: "/landing/value/inclusive-standards.webp",
+      waveSrc: "/landing/value/wave-red-hires.webp",
       // href: "/value/inclusive-standards",
     },
     {
       title: "Yogyakarta experience",
       description:
         "Conference proceedings are enriched by cultural encounters and spaces that reflect the city’s identity.",
-      imageSrc: "/landing/yogya-experience.webp",
-      waveSrc: "/landing/wave-green-hires.webp",
+      imageSrc: "/landing/value/yogya-experience.webp",
+      waveSrc: "/landing/value/wave-green-hires.webp",
       // href: "/value/yogya-experience",
     },
   ];
 
   return (
     <section className="py-20">
-      {/* div ini nanti diganti pake <Container> */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <Container>
         <h2 className="font-h2 text-neutral-200">
           What Makes JOINMUN Worth It
         </h2>
@@ -45,7 +44,7 @@ const Value = () => {
             <ValueCard key={card.title} {...card} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

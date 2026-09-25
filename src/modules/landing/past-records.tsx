@@ -104,7 +104,7 @@ const PastRecords = () => {
             className="mt-6 w-fit font-b4 gap-2 rounded-lg sm:w-fit sm:mt-8"
           >
             Coming Soon
-            <HiArrowRight />
+            {/* <HiArrowRight /> */}
           </Button>
         </div>
       </div>

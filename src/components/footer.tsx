@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
@@ -29,12 +30,16 @@ export default function Footer() {
         <div>
           <h2 className="text-xs font-bold md:font-b3">Follow Us</h2>
           <div className="mt-4 flex gap-2">
-            <Link href="https://www.instagram.com/joinmun.ugm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-6 w-7 items-center justify-center rounded-md bg-primary-300 text-xs transition-colors hover:bg-primary-200 md:h-9 md:w-10 md:rounded-lg md:text-lg">
-              <FaInstagram />
-            </Link>
-            <Link href="https://www.linkedin.com/company/jogjainternationalmodelunitednations/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-6 w-7 items-center justify-center rounded-md bg-primary-300 text-xs transition-colors hover:bg-primary-200 md:h-9 md:w-10 md:rounded-lg md:text-lg">
-              <FaLinkedinIn />
-            </Link>
+            <Button size="iconsm">
+              <Link href="https://www.instagram.com/joinmun.ugm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" >
+                <FaInstagram />
+              </Link>
+            </Button>
+            <Button size="iconsm">
+              <Link href="https://www.linkedin.com/company/jogjainternationalmodelunitednations/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" >
+                <FaLinkedinIn />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

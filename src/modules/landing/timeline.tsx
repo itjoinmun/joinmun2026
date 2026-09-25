@@ -17,11 +17,11 @@ export default function Timeline() {
   const isVisible = useInView(section, { once: true, amount: 0.35 });
 
   return (
-    <section id="timeline" ref={section} className="relative overflow-hidden bg-[#fdfaec] px-6 py-20 text-black md:px-12 md:py-28">
+    <section id="timeline" ref={section} className="relative overflow-hidden py-20 text-black md:py-28">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       </div>
 
-      <Container className="relative z-10 max-w-320 justify-center overflow-visible ">
+      <Container className="relative z-10 justify-center overflow-visible ">
         <h2 className="font-h1">Save the Timeline!</h2>
         <p className="font-h7 font-normal">
           Get a clear view of <strong>all the important dates</strong>, from registration to the conference days. This timeline helps you stay prepared at every stage.
