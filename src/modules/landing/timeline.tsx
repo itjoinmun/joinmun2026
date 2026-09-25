@@ -6,8 +6,8 @@ import Container from "@/src/components/ui/container";
 
 const TIMELINE = [
   { date: "25 September 2026", label: "Late Wave Registration" },
-  { date: "16 Jun — 14 Jul", label: "Close Late Wave Registration" },
-  { date: "20 November 2026", label: "City Tour & Opening" },
+  { date: "20 October 2026", label: "Close Late Wave Registration" },
+  { date: "20 November 2026", label: "Opening Ceremony" },
   { date: "21 November 2026", label: "Comses & Social Night" },
   { date: "22 November 2026", label: "Closing Ceremony" },
 ];
