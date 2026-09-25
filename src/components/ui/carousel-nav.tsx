@@ -24,7 +24,7 @@ function CarouselNav({
     "w-9 h-9 rounded-lg bg-primary-300 text-neutral-100 flex items-center justify-center hover:bg-primary-200 transition-colors disabled:opacity-50 disabled:hover:bg-primary-300";
 
   return (
-    <nav className="flex items-center justify-center gap-[23px]">
+    <nav className="flex items-center justify-center gap-[13px] lg:gap-[23px]">
       <button
         type="button"
         onClick={() => onChange(Math.max(0, page - 1))}
