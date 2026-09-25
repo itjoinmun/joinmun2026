@@ -1,4 +1,5 @@
 import Hero from "@/src/modules/landing/hero"
+import Timeline from "@/src/modules/landing/timeline"
 import Chair from "@/src/modules/landing/chair"
 import Theme from "@/src/modules/landing/theme"
 import Award from "@/src/modules/landing/award"
@@ -14,7 +15,7 @@ export default function Home() {
       {/* <Value/> dani */}
       {/* <Council/> ramzi */}
       {/* <Events /> ramzi */}
-      {/* <Timeline /> aya */}
+      <Timeline />
       <Chair />
       <Theme />
       <Award />

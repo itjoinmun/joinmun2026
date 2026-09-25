@@ -22,7 +22,7 @@ const characterVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative isolate h-[550px] min-h-[550px] max-h-[550px] overflow-hidden text-white sm:h-auto sm:min-h-[760px] sm:max-h-none">
+    <section className="relative isolate h-[550px] min-h-[550px] max-h-[550px] overflow-hidden text-white sm:h-auto sm:min-h-[760px] md:h-screen sm:max-h-none">
       <Image
         src="/landing/hero/hero-background.webp"
         alt="Delegates in a JOINMUN conference session"
@@ -78,7 +78,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative z-30 mx-auto flex h-full max-h-[550px] max-w-[1440px] flex-col items-start justify-start px-6 pb-7 sm:h-auto sm:min-h-[760px] md:items-start md:justify-end lg:px-11 lg:pb-12.5 xl:px-11">
+      <div className="relative z-30 mx-auto flex h-full max-h-[550px] max-w-[1440px] flex-col items-start justify-start px-6 pb-7 sm:h-auto md:h-screen md:max-h-screen md:items-start md:justify-end lg:px-11 lg:pb-12.5 xl:px-11">
         <div className="mt-24 w-full max-w-[750px] md:mt-0 md:w-auto">
           <motion.h1
             variants={containerVariants}

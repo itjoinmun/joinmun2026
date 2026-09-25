@@ -80,7 +80,7 @@
 }
 
 @utility font-h3 {
-  font-family: var(--font-plus-jakarta-sans);
+  font-family: var(--font-cormorant-garamond);
   font-size: 30px;
   font-weight: 700;
   line-height: 1.25;
