@@ -1,5 +1,5 @@
 import Container from "@/src/components/ui/container";
-import ValueCard from "@/src/components/value/value-card";
+import ValueCard from "@/src/components/landing/value-card";
 
 const Value = () => {
   const VALUE_CARDS = [

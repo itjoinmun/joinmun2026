@@ -3,7 +3,7 @@ import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import StatItem, {
   StatItemProps,
-} from "@/src/components/past-records/stat-item";
+} from "@/src/components/landing/stat-item";
 import { MdOutlineGroups } from "react-icons/md";
 import { LiaGlobeSolid } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";

@@ -22,7 +22,7 @@ export default function Footer() {
 
         <div>
           <h2 className="text-xs font-bold md:font-b3">Contact Us</h2>
-          <Link href="mailto:publicaffairs.joinmun@gmail.com" className="mt-3 block text-xs text-white/75 transition-colors hover:text-white md:mt-4 md:font-b3 md:text-base">
+          <Link href="mailto:ticketcomjoinmun2026@gmail.com" className="mt-3 block text-xs text-white/75 transition-colors hover:text-white md:mt-4 md:font-b3 md:text-base">
             Email
           </Link>
         </div>
