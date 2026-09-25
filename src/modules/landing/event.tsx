@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CarouselNav } from "@/src/components/ui/carousel-nav";
 import { HiArrowUpRight } from "react-icons/hi2";
 import Container from "@/src/components/ui/container";
@@ -11,7 +11,6 @@ interface EventItem {
   title: string;
   description: string;
   image: string;
-  featured?: boolean;
   tag?: string;
 }
 
@@ -22,7 +21,6 @@ const events: EventItem[] = [
     title: "Coming Soon",
     description: "Stay tuned for a very interesting event reveal!",
     image: "/landing/event-pre-event-bg.png",
-    featured: true,
   },
   {
     date: "20 Nov ",
@@ -55,19 +53,33 @@ const events: EventItem[] = [
 ];
 
 const CARD_GAP = 24;
-const VIEW_WIDTH = 1200;
-const cardWidth = (event: EventItem) => (event.featured ? 320 : 300);
+const STRIDE = 300 + CARD_GAP;
 
-const PAGE_OFFSETS = (() => {
-  let x = 0;
-  const starts: number[] = [];
-  for (const event of events) {
-    starts.push(x);
-    x += cardWidth(event) + CARD_GAP;
+const scrollEntries = (max: number) => {
+  const seen = new Set<number>();
+  const out: { pos: number; idx: number }[] = [];
+  events.forEach((_, i) => {
+    const pos = Math.min(i * STRIDE, max);
+    if (!seen.has(pos)) {
+      seen.add(pos);
+      out.push({ pos, idx: i });
+    }
+  });
+  return out;
+};
+
+const nearestIdx = (scrollLeft: number, max: number) => {
+  let best = 0;
+  let bestDist = Infinity;
+  for (const entry of scrollEntries(max)) {
+    const dist = Math.abs(entry.pos - scrollLeft);
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = entry.idx;
+    }
   }
-  const maxOffset = Math.max(0, x - CARD_GAP - VIEW_WIDTH);
-  return [...new Set(starts.map((start) => Math.min(start, maxOffset)))];
-})();
+  return best;
+};
 
 function DateBadge({ date, featured }: { date: string; featured?: boolean }) {
   return (
@@ -113,61 +125,48 @@ function Shadows() {
   );
 }
 
-function FeaturedCard({ event }: { event: EventItem }) {
+function EventCard({ event, active }: { event: EventItem; active: boolean }) {
   return (
-    <div className="relative w-[320px] h-[380px] shrink-0 overflow-hidden bg-neutral-300">
+    <div
+      className={`relative shrink-0 overflow-hidden bg-neutral-300 transition-[width,height] duration-300 ease-out ${active ? "w-[320px] h-[380px]" : "w-[300px] h-[356px]"
+        }`}
+    >
       <Image
         src={event.image}
         alt={event.title}
         fill
-        sizes="320px"
+        sizes={active ? "320px" : "300px"}
         className="object-cover"
       />
       <Shadows />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 backdrop-blur-[6px] bg-gradient-to-b from-transparent to-black/50 pointer-events-none"
-      />
+
+      {active && (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 backdrop-blur-[6px] bg-gradient-to-b from-transparent to-black/50 pointer-events-none"
+        />
+      )}
 
       <div className="absolute top-6 left-4 z-10">
-        <DateBadge date={event.date} featured />
+        <DateBadge date={event.date} featured={active} />
       </div>
 
-      <div className="absolute top-[227px] left-4 right-4 z-10 flex flex-col">
-        <span className="w-fit px-3 py-1 rounded-lg bg-white text-black text-[12px] leading-[18px] font-bold">
-          {event.tag}
-        </span>
-        <span className="font-serif text-[30px] font-bold leading-[45px] text-white">
-          {event.title}
-        </span>
-        <span className="text-[10px] leading-[15px] font-normal text-white">
-          {event.description}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function EventCard({ event }: { event: EventItem }) {
-  if (event.featured) {
-    return <FeaturedCard event={event} />;
-  }
-
-  return (
-    <div className="relative w-[300px] h-[356px] shrink-0 overflow-hidden bg-neutral-300">
-      <Image
-        src={event.image}
-        alt={event.title}
-        fill
-        sizes="300px"
-        className="object-cover"
-      />
-      <Shadows />
-
-      <div className="relative z-10 h-full flex flex-col justify-between px-4 py-6">
-        <DateBadge date={event.date} />
-
-        <div className="flex flex-col gap-3">
+      {active ? (
+        <div className="absolute top-[227px] left-4 right-4 z-10 flex flex-col">
+          {event.tag && (
+            <span className="w-fit px-3 py-1 rounded-lg bg-white text-black text-[12px] leading-[18px] font-bold">
+              {event.tag}
+            </span>
+          )}
+          <span className="font-serif text-[30px] font-bold leading-[45px] text-white">
+            {event.title}
+          </span>
+          <span className="text-[10px] leading-[15px] font-normal text-white">
+            {event.description}
+          </span>
+        </div>
+      ) : (
+        <div className="absolute bottom-6 left-4 right-4 z-10 flex flex-col gap-3">
           <div className="flex flex-col gap-1">
             <span className="font-serif text-[30px] font-bold leading-[45px] text-white">
               {event.title}
@@ -178,26 +177,56 @@ function EventCard({ event }: { event: EventItem }) {
           </div>
           <LearnMoreButton />
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
 export default function Events() {
-  const [page, setPage] = useState(0);
-  const offset = PAGE_OFFSETS[page] ?? 0;
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [max, setMax] = useState<number | null>(null);
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const update = () => {
+      const m = el.scrollWidth - el.clientWidth;
+      setMax(m);
+      setIdx(nearestIdx(el.scrollLeft, m));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const handleScroll = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    setIdx(nearestIdx(el.scrollLeft, el.scrollWidth - el.clientWidth));
+  };
+
+  const scrollToIdx = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const m = el.scrollWidth - el.clientWidth;
+    el.scrollTo({ left: Math.min(i * STRIDE, m), behavior: "smooth" });
+  };
+
+  const entries = max === null ? [] : scrollEntries(max);
+  const page = Math.max(0, entries.findIndex((entry) => entry.idx === idx));
 
   return (
     <section
-      id="events"
-      className="relative overflow-hidden mx-auto h-[605px] flex flex-col items-center justify-center gap-[17px]"
+      className="relative overflow-hidden mx-auto lg:h-[605px] flex flex-col items-center justify-center gap-[17px] py-9 lg:py-0"
     >
       <Container>
         <div className="w-full">
           <h2 className="font-serif text-[34px] font-bold leading-[47px] text-black">
             Explore our Events!
           </h2>
-          <p className="font-serif text-[20px] font-medium leading-[30px] tracking-[-0.015em] text-black">
+          <p className="font-serif text-[16px] leading-[25px] lg:text-[20px] lg:leading-[30px] font-medium tracking-[-0.015em] text-black">
             JOINMUN is a 3-day event that brings together participants for{" "}
             <strong className="font-bold">diplomatic discussions.</strong>{" "}
             During the conference, delegates represent different countries and
@@ -210,26 +239,33 @@ export default function Events() {
         </div>
 
         <div className="w-full flex flex-col gap-[17px]">
-          <div className="overflow-hidden">
-            <div
-              className="flex items-center gap-6 transition-transform duration-300 ease-out"
-              style={{ transform: `translateX(-${offset}px)` }}
-            >
-              {events.map((event) => (
-                <EventCard key={event.title} event={event} />
+          <div
+            ref={scrollerRef}
+            onScroll={handleScroll}
+            className="h-[380px] contain-size overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <div className="flex items-center gap-6">
+              {events.map((event, i) => (
+                <EventCard
+                  key={event.title}
+                  event={event}
+                  active={i === idx}
+                />
               ))}
             </div>
           </div>
 
-          <CarouselNav
-            page={page}
-            total={PAGE_OFFSETS.length}
-            onChange={setPage}
-            label="events"
-            dotLabel="slide"
-            activeDotClass="bg-black"
-            inactiveDotClass="bg-neutral-400"
-          />
+          {max !== null && (
+            <CarouselNav
+              page={page}
+              total={entries.length}
+              onChange={(p) => scrollToIdx(entries[p].idx)}
+              label="events"
+              dotLabel="slide"
+              activeDotClass="bg-black"
+              inactiveDotClass="bg-neutral-400"
+            />
+          )}
         </div>
       </Container>
     </section>
