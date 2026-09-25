@@ -7,7 +7,7 @@ interface Props {
   Icon: IconType
 }
 
-const Card = ({ children, Icon, title }: Props) => {
+const ChairCard = ({ children, Icon, title }: Props) => {
   return (
     <div className="rounded-sm border border-neutral-300 bg-neutral-100 text-black px-3 py-5 flex flex-col gap-2">
       <div className="flex gap-2 items-center">
@@ -21,4 +21,4 @@ const Card = ({ children, Icon, title }: Props) => {
   )
 }
 
-export default Card
+export default ChairCard
