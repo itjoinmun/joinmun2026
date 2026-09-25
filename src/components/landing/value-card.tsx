@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
-import { Button } from "@/src/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/src/lib/utils";
+import { buttonVariants } from "../ui/button";
 
 export interface ValueCardProps {
   title: string;
   description: string;
   imageSrc: string;
   waveSrc: string;
-  // href: string;
+  href: string;
 }
 
 const ValueCard = ({
@@ -16,10 +18,10 @@ const ValueCard = ({
   description,
   imageSrc,
   waveSrc,
-  // href,
+  href,
 }: ValueCardProps) => {
   return (
-    <div className="relative flex h-fit xl:max-h-none max-h-50 pb-5 flex-col overflow-hidden rounded-md shadow-md">
+    <div className="relative flex min-h-40 flex-col overflow-hidden rounded-md shadow-md md:min-h-56 lg:min-h-50">
       <Image src={imageSrc} alt="" fill className="object-cover" />
 
       <div className="absolute inset-0 bg-neutral-300/83" aria-hidden />
@@ -29,25 +31,30 @@ const ValueCard = ({
         alt=""
         width={774}
         height={410}
-        className="absolute bottom-[-5] right-0 h-auto w-[75%] sm:w-fit"
+        className="absolute -bottom-2.5 right-0 h-auto w-[75%] sm:w-fit sm:bottom-0"
       />
 
       <div className="relative flex h-full flex-col justify-between">
-        <div className="px-[18px] pt-4 pb-1 sm:pt-5 sm:pb-1">
-          <h3 className="font-h7 text-neutral-200 sm:font-h6">{title}</h3>
-          <div className="mt-1.5 mb-2 h-px w-full bg-neutral-200 sm:mt-2 sm:mb-3" />
-          <p className="font-b5 font-medium max-w-[95%] text-neutral-200 sm:font-b2">
+        <div className="text-black px-4.5 pt-4 sm:pt-5 sm:pb-1">
+          <h3 className="font-h7 text-[1.20rem] text-black sm:font-h6">
+            {title}
+          </h3>
+          <div className="mt-3 mb-1.5 border-t-[0.8px] w-full border-black" />
+          <p className="font-b4 text-[0.8rem] max-w-[93%] sm:font-b2 sm:text-[0.93rem]">
             {description}
           </p>
         </div>
-        <Button
-          size="sm"
-          disabled
-          className="w-fit gap-3 self-end rounded-lg font-b5 mb-4.5 mx-3"
+
+        <Link
+          href={href}
+          className={cn(
+            buttonVariants({ size: "sm" }),
+            "w-fit gap-2 self-end rounded-lg font-b5 text-[0.7rem] mb-3 mx-3 sm:text-xs sm:mb-4",
+          )}
         >
-          Coming Soon
-          {/* <HiArrowRight /> */}
-        </Button>
+          See More
+          <HiArrowRight className="size-4" />
+        </Link>
       </div>
     </div>
   );

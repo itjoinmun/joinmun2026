@@ -1,13 +1,14 @@
-import ChairCard from "@/src/components/landing/chair-card"
-import Container from "@/src/components/ui/container"
-import { GiEarthAsiaOceania } from "react-icons/gi"
-import { LuHandshake } from "react-icons/lu"
-import { MdOutlineGroups } from "react-icons/md"
-import { RiBookLine } from "react-icons/ri"
+import ChairCard from "@/src/components/landing/chair-card";
+import Container from "@/src/components/ui/container";
+import { GiEarthAsiaOceania } from "react-icons/gi";
+import { LuHandshake } from "react-icons/lu";
+import { MdOutlineGroups } from "react-icons/md";
+import { RiBookLine } from "react-icons/ri";
 
 const Chair = () => {
   return (
     <section
+      id="chair"
       style={{
         backgroundImage:
           "url('/landing/chairBG.webp'), linear-gradient(to bottom, #B35144, #5E2922)",
@@ -41,8 +42,8 @@ const Chair = () => {
           </ChairCard>
         </div>
       </Container>
-    </section >
-  )
-}
+    </section>
+  );
+};
 
-export default Chair
+export default Chair;

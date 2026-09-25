@@ -127,7 +127,10 @@ export function Council() {
   const [page, setPage] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-primary-500 py-9">
+    <section
+      id="councils"
+      className="relative overflow-hidden bg-primary-500 py-9"
+    >
       <Container>
         <img
           src="/landing/pattern.svg"
@@ -145,12 +148,12 @@ export function Council() {
             <p className="font-serif text-[20px] font-medium leading-[30px] text-neutral-100">
               Each council is
               <strong className="font-bold"> thoughtfully curated</strong> to
-              reflect pressing real-world issues, offering delegates the space to
-              debate. Our councils are designed to
+              reflect pressing real-world issues, offering delegates the space
+              to debate. Our councils are designed to
               <strong className="font-bold">
                 {" "}
-                stimulate critical thinking, encourage collaboration, and develop
-                articulate, confident leaders.
+                stimulate critical thinking, encourage collaboration, and
+                develop articulate, confident leaders.
               </strong>
             </p>
           </div>
@@ -187,10 +190,11 @@ export function Council() {
                         />
                         <div className="flex flex-col">
                           <span
-                            className={`font-serif font-bold text-neutral-100 ${council.nameSize === "lg"
+                            className={`font-serif font-bold text-neutral-100 ${
+                              council.nameSize === "lg"
                                 ? "text-[26px] leading-[39px]"
                                 : "text-[24px] leading-[36px]"
-                              }`}
+                            }`}
                           >
                             {council.name}
                           </span>
