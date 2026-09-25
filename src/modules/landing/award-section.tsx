@@ -48,13 +48,13 @@ export default function AwardSection() {
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 block w-16 overflow-visible md:w-30">
         <Image
-          src="/landing/awards/award-ornament.png"
+          src="/landing/awards/award-ornament.webp"
           alt=""
           fill
           className="object-fill object-left -hue-rotate-45 saturate-250 md:object-cover"
         />
         <Image
-          src="/landing/awards/award-ornament.png"
+          src="/landing/awards/award-ornament.webp"
           alt=""
           fill
           className="object-fill object-left brightness-0 opacity-40 md:object-cover"
@@ -66,7 +66,7 @@ export default function AwardSection() {
       </div>
       <div className="pointer-events-none absolute inset-y-0 right-0 block w-16 overflow-visible md:w-30">
         <Image
-          src="/landing/awards/award-ornament.png"
+          src="/landing/awards/award-ornament.webp"
           alt=""
           fill
           className="-scale-x-100 object-fill object-left -hue-rotate-45 saturate-250 md:object-cover"
