@@ -8,10 +8,10 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { cn } from "@/src/lib/utils";
 
 const links = [
-  ["About", "#about"],
-  ["Timeline", "#timeline"],
-  ["Councils", "#councils"],
-  ["Events", "#events"],
+  ["About", "/#about"],
+  ["Timeline", "/#timeline"],
+  ["Councils", "/#councils"],
+  ["Events", "/#events"],
 ] as const;
 
 export default function Navbar() {

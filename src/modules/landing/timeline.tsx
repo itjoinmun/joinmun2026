@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Container from "@/src/components/ui/container";
 
 const TIMELINE = [
-  { date: "20 September 2026", label: "Late Wave Registration" },
+  { date: "25 September 2026", label: "Late Wave Registration" },
   { date: "16 Jun — 14 Jul", label: "Close Late Wave Registration" },
   { date: "20 November 2026", label: "City Tour & Opening" },
   { date: "21 November 2026", label: "Comses & Social Night" },

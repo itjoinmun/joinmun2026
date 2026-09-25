@@ -14,8 +14,8 @@ export default function Footer() {
         <div>
           <h2 className="text-xs font-bold md:font-b3">Event Info</h2>
           <div className="mt-3 flex flex-col gap-3 text-xs text-white/75 md:mt-4 md:font-b3 md:text-base">
-            <Link href="#councils" className="transition-colors hover:text-white">Councils</Link>
-            <Link href="#timeline" className="transition-colors hover:text-white">Timeline</Link>
+            <Link href="/#councils" className="transition-colors hover:text-white">Councils</Link>
+            <Link href="/#timeline" className="transition-colors hover:text-white">Timeline</Link>
             <Link href="/pricing" className="transition-colors hover:text-white">Pricing</Link>
           </div>
         </div>

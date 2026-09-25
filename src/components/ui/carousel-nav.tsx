@@ -1,4 +1,5 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+
 
 interface CarouselNavProps {
   page: number;
@@ -31,7 +32,7 @@ function CarouselNav({
         aria-label={`Previous ${label}`}
         className={navButtonClass}
       >
-        <ChevronLeftIcon />
+        <HiChevronLeft />
       </button>
       <div className="flex gap-2">
         {Array.from({ length: total }, (_, i) => (
@@ -54,7 +55,7 @@ function CarouselNav({
         aria-label={`Next ${label}`}
         className={navButtonClass}
       >
-        <ChevronRightIcon />
+        <HiChevronRight />
       </button>
     </nav>
   );
