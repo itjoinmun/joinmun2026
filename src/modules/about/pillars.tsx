@@ -39,26 +39,35 @@ const pillars: Pillar[] = [
 export function Pillar() {
   return (
     <section className="relative overflow-hidden bg-primary-500 py-9">
-      <img
+      <Image
         src="/landing/pattern.svg"
         alt=""
         aria-hidden="true"
+        width={4000}
+        height={1600}
         className="pointer-events-none absolute mix-blend-color-dodge hidden lg:block"
-        style={{ left: -180, top: -770, width: 4000, height: 1600, transform: "scale(1.2)", transformOrigin: "top left"}}
+        style={{left: -180, top: -770, width: 4000, height: 1600, transform: "scale(1.2)", transformOrigin: "top left",
+        }}
       />
-      <img
+      <Image
         src="/landing/pattern.svg"
         alt=""
         aria-hidden="true"
+        width={800}
+        height={800}
         className="pointer-events-none absolute mix-blend-color-dodge hidden md:block lg:hidden"
-        style={{ left: -90, top: -250, width: 800, height: 800, transform: "scale(1.25)", transformOrigin: "top left"}}
+        style={{left: -90, top: -250, width: 800, height: 800, transform: "scale(1.25)", transformOrigin: "top left",
+        }}
       />
-      <img
+      <Image
         src="/landing/pattern.svg"
         alt=""
         aria-hidden="true"
+        width={800}
+        height={900}
         className="pointer-events-none absolute mix-blend-color-dodge block md:hidden lg:hidden"
-        style={{ left: -60, top: -500, width: 800, height: 900, transform: "scale(2.0)", transformOrigin: "top left"}}
+        style={{left: -60, top: -500, width: 800, height: 900, transform: "scale(2.0)", transformOrigin: "top left",
+        }}
       />
       <Container>
         <div className="relative z-10 flex flex-col items-center gap-5">
