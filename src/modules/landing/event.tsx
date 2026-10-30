@@ -86,14 +86,14 @@ function DateBadge({ date, featured }: { date: string; featured?: boolean }) {
     <div className="relative flex items-center w-fit h-[34px] rounded-lg bg-white pl-8 pr-3">
       <span
         aria-hidden="true"
-        className={`absolute left-0 top-0 w-5 h-9 rounded-lg ${featured ? "" : "bg-neutral-200"
-          }`}
+        className={`absolute left-0 top-0 w-5 h-9 rounded-lg ${
+          featured ? "" : "bg-neutral-200"
+        }`}
         style={
           featured
             ? {
-              background:
-                "linear-gradient(180deg, #E86959 0%, #5E2921 100%)",
-            }
+                background: "linear-gradient(180deg, #E86959 0%, #5E2921 100%)",
+              }
             : undefined
         }
       />
