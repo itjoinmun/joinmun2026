@@ -39,4 +39,12 @@ export const awards = [
     image: "/landing/awards/fan-5.webp",
     backgroundImage: "/landing/awards/award-card.webp",
   },
+  {
+    id: "best-position-paper",
+    title: "Best Position Paper",
+    description: "Awarded for the best written paper demonstrating exceptional council insight.",
+    category: "Non Crisis Councils",
+    image: "/landing/awards/fan-6.webp",
+    backgroundImage: "/landing/awards/award-card.webp",
+  },
 ];

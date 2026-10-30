@@ -9,7 +9,7 @@ const Value = () => {
         "Selection of councils, agendas, venues, and supporting events creates a coherent and memorable experience.",
       imageSrc: "/landing/value/curated-conference.webp",
       waveSrc: "/landing/value/wave-olive-hires.webp",
-      // href: "/value/curated-conference",
+      href: "#councils",
     },
     {
       title: "Inclusive standards",
@@ -17,7 +17,7 @@ const Value = () => {
         "Delegates across age groups are welcomed while professional academic and event standards are maintained.",
       imageSrc: "/landing/value/inclusive-standards.webp",
       waveSrc: "/landing/value/wave-red-hires.webp",
-      // href: "/value/inclusive-standards",
+      href: "#chair",
     },
     {
       title: "Yogyakarta experience",
@@ -25,7 +25,7 @@ const Value = () => {
         "Conference proceedings are enriched by cultural encounters and spaces that reflect the city’s identity.",
       imageSrc: "/landing/value/yogya-experience.webp",
       waveSrc: "/landing/value/wave-green-hires.webp",
-      // href: "/value/yogya-experience",
+      href: "#event",
     },
   ];
 
