@@ -1,11 +1,11 @@
 import { Pillar } from "@/src/modules/about/pillars"
+import PastSpeakers from "@/src/modules/about/past-speakers"
 
 export default function AboutPage() {
   return (
     <main>
-      <div id="pillar">
-        <Pillar/>
-      </div>
+      <Pillar/>
+      <PastSpeakers />
     </main>
   )
 }
