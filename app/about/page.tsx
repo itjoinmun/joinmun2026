@@ -1,11 +1,11 @@
+import { Pillar } from "@/src/modules/about/pillars"
 import PastSpeakers from "@/src/modules/about/past-speakers"
 
-const About = () => {
+export default function AboutPage() {
   return (
-    <>
+    <main>
+      <Pillar/>
       <PastSpeakers />
-    </>
+    </main>
   )
 }
-
-export default About

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
 import Container from "@/src/components/ui/container";
 import { Button } from "@/src/components/ui/button";
 
@@ -28,17 +27,34 @@ export default function About() {
               About Us: Empower Voices, Build Connections
             </h1>
             <p className="font-b4 md:font-b2 text-justify text-black">
-              Jogja International Model United Nations (JOINMUN) is an{" "}<strong>International Model United Nations</strong>{" "}conference initiated by the{" "}<strong>Universitas Gadjah Mada Model United Nations Community </strong> . It brings together emerging leaders to explore urgent global issues through structured debate, negotiation, coalition-building, and resolution drafting. In professionally moderated councils, delegates represent countries, institutions, or relevant stakeholders while learning to balance national interests with collective action. <br /><br /> More than an academic simulation, JOINMUN is a space for intellectual curiosity, intercultural exchange, and responsible leadership. By combining high academic standards with the hospitality and cultural richness of Yogyakarta, the conference empowers participants to sharpen their reasoning, express ideas confidently, and build connections beyond the committee room.
+              Jogja International Model United Nations (JOINMUN) is an{" "}
+              <strong>International Model United Nations</strong> conference
+              initiated by the{" "}
+              <strong>
+                Universitas Gadjah Mada Model United Nations Community{" "}
+              </strong>{" "}
+              . It brings together emerging leaders to explore urgent global
+              issues through structured debate, negotiation, coalition-building,
+              and resolution drafting. In professionally moderated councils,
+              delegates represent countries, institutions, or relevant
+              stakeholders while learning to balance national interests with
+              collective action. <br />
+              <br /> More than an academic simulation, JOINMUN is a space for
+              intellectual curiosity, intercultural exchange, and responsible
+              leadership. By combining high academic standards with the
+              hospitality and cultural richness of Yogyakarta, the conference
+              empowers participants to sharpen their reasoning, express ideas
+              confidently, and build connections beyond the committee room.
             </p>
             <Button className="w-fit" disabled>
               <Link href={"#about"} className="flex items-center gap-2">
-                Coming Soon 
+                Coming Soon
                 {/* <FaArrowRight /> */}
               </Link>
             </Button>
           </div>
         </div>
       </Container>
-    </section >
+    </section>
   );
 }

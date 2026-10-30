@@ -1,3 +1,4 @@
+import Testimonies from "@/src/components/landing/testimonies";
 import Hero from "@/src/modules/landing/hero"
 import About from "@/src/modules/landing/about";
 import Value from "@/src/modules/landing/value";
