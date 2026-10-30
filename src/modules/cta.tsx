@@ -37,7 +37,7 @@ export default function Cta() {
             Join hundreds of brilliant minds and test your negotiation skills in the most rigorous diplomatic simulation. The council is waiting for your voice.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="#councils" className="inline-flex items-center rounded-lg border border-primary-100 px-5 py-3 text-sm font-semibold text-primary-100 transition-colors hover:bg-primary-100 hover:text-primary-500">
+            <Link href="/#councils" className="inline-flex items-center rounded-lg border border-primary-100 px-5 py-3 text-sm font-semibold text-primary-100 transition-colors hover:bg-primary-100 hover:text-primary-500">
               See Councils
             </Link>
             <Link href="https://bit.ly/LateWaveJOINMUN2026" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary-300 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-200">

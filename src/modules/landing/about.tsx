@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/src/components/ui/container";
 import { Button } from "@/src/components/ui/button";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -46,10 +47,10 @@ export default function About() {
               empowers participants to sharpen their reasoning, express ideas
               confidently, and build connections beyond the committee room.
             </p>
-            <Button className="w-fit" disabled>
-              <Link href={"#about"} className="flex items-center gap-2">
-                Coming Soon
-                {/* <FaArrowRight /> */}
+            <Button className="w-fit">
+              <Link href={"/about"} className="flex items-center gap-2">
+                Explore More
+                <FaArrowRight />
               </Link>
             </Button>
           </div>

@@ -115,7 +115,7 @@ export default function Hero() {
             className="mt-5 flex w-full flex-nowrap gap-3 max-md:absolute max-md:right-6 max-md:bottom-7 max-md:left-6 max-md:mt-0 md:mt-7 md:w-auto md:flex-wrap"
           >
             <Button size="xl" className="bg-transparent font-bold text-primary-100 ring-1 ring-primary-100 transition-colors hover:bg-primary-100 hover:text-white">
-              <Link href="#councils">
+              <Link href="/#councils">
                 See Councils
               </Link>
             </Button>

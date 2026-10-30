@@ -1,112 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { CarouselNav } from "@/src/components/ui/carousel-nav";
 import { HiArrowUpRight } from "react-icons/hi2";
 import Container from "@/src/components/ui/container";
-
-interface Council {
-  name: string;
-  nameSize: "lg" | "sm";
-  type: string;
-  level: string;
-  mode: string;
-  description: string;
-  logo: string;
-  image: string;
-}
-
-const councils: Council[] = [
-  {
-    name: "FIFA",
-    nameSize: "lg",
-    type: "Single",
-    level: "Beginner",
-    mode: "Offline",
-    description:
-      "World Cup Expansion: The Importance of Regional Representation in Global Sporting Events",
-    logo: "/landing/fifa-logo.png",
-    image: "/landing/fifa-bg.png",
-  },
-  {
-    name: "UNICEF",
-    nameSize: "lg",
-    type: "Single",
-    level: "Beginner",
-    mode: "Online",
-    description:
-      "Addressing the Impact of Climate-Induced Displacement of Children Following the 2022 Pakistani Floods",
-    logo: "/landing/unicef-logo.png",
-    image: "/landing/unicef-bg.png",
-  },
-  {
-    name: "UNEP",
-    nameSize: "lg",
-    type: "Single",
-    level: "Beginner",
-    mode: "Offline",
-    description:
-      "Facilitating a Sustainable and Actionable Green Transition for Developing States’ Mining Sector",
-    logo: "/landing/unep-logo.png",
-    image: "/landing/unep-bg.png",
-  },
-  {
-    name: "UNWomen",
-    nameSize: "sm",
-    type: "Single",
-    level: "Intermediate",
-    mode: "Offline",
-    description:
-      "Addressing the Threat of Artificial Intelligence-Based Gender Violence Following The Case of the 2024 South Korean Deepfake Crisis",
-    logo: "/landing/unwoman-logo.png",
-    image: "/landing/unwomen-bg.png",
-  },
-  {
-    name: "African Union",
-    nameSize: "sm",
-    type: "Single",
-    level: "Intermediate",
-    mode: "Online",
-    description:
-      "Increasing Regional Currency Independence: The Possibility of a Common Currency for African Trade",
-    logo: "/landing/african-union-logo.png",
-    image: "/landing/african-union-bg.png",
-  },
-  {
-    name: "UNCTAD",
-    nameSize: "sm",
-    type: "Single",
-    level: "Intermediate",
-    mode: "Online",
-    description:
-      "Data Nationalism vs Data Sovereignty: Should States Restrict Cross-Border Data Flows?",
-    logo: "/landing/unctad-logo.png",
-    image: "/landing/unctad-bg.png",
-  },
-  {
-    name: "UNSC",
-    nameSize: "sm",
-    type: "Double",
-    level: "Advanced",
-    mode: "Offline",
-    description:
-      "Addressing the Security of Middle Eastern Countries: The Threat of Unprovoked Retaliation",
-    logo: "/landing/unsc-logo.png",
-    image: "/landing/unsc-bg.png",
-  },
-  {
-    name: "Historical Crisis",
-    nameSize: "sm",
-    type: "Single",
-    level: "Advanced",
-    mode: "Offline",
-    description:
-      "The Fate of the Indonesian National Revolution: The Occupation of Yogyakarta and the General Offensive of 1 March 1949",
-    logo: "/landing/historical-crisis-logo.png",
-    image: "/landing/historical-crisis-bg.png",
-  },
-];
+import { councils } from "@/src/modules/councils/data";
 
 const levelTagStyles: Record<string, string> = {
   Beginner: "bg-neutral-100 text-black",
@@ -246,15 +146,15 @@ export function Council() {
                           </span>
                         </div>
                         <p className="text-[14px] leading-[21px] font-normal text-neutral-100">
-                          {council.description}
+                          {council.topic}
                         </p>
-                        <button
-                          type="button"
+                        <Link
+                          href={`/councils/${council.slug}`}
                           className="w-full h-9 rounded-lg bg-primary-300 border border-primary-300 text-neutral-100 text-[12px] leading-[18px] font-normal flex items-center justify-center gap-2 hover:border-primary-400 active:bg-primary-200 active:border-primary-100 transition-colors"
                         >
                           Explore council
                           <HiArrowUpRight />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
